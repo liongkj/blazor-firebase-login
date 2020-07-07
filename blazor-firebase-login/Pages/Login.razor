@@ -1,0 +1,25 @@
+﻿@page "/login"
+@inherits LoginViewModel
+<div class="mat-layout-grid">
+    <div class="mat-layout-grid-inner">
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12 mat-layout-grid-align-center">
+            <h3>Login</h3>
+        </div>
+        <EditForm Model="@LoginModel" OnValidSubmit="SubmitAsync" class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="mat-layout-grid-inner">
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                    <MatTextField FullWidth="true" Label="UserID" @bind-Value="@LoginModel.UserID"></MatTextField>
+                </div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+                    <MatTextField FullWidth="true" Label="Password" @bind-Value="@LoginModel.Password" Type="password"></MatTextField>
+                </div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12 mat-layout-grid-align-right">
+                    <buton Label="Login" Outlined="true" Type="submit"></buton>
+                </div>
+            </div>
+            <p style="color:red;">@ErrorMessage</p>
+        </EditForm>
+    </div>
+</div>
